@@ -1,0 +1,30 @@
+ion-icon {
+    font-size: 30px;
+}
+
+ion-content {
+    // z-index: 0 !important;
+    --background: #F9F2E6 !important;
+}
+
+ion-toolbar {
+    --background: #F9F2E6;
+}
+
+ion-card {
+    box-shadow: none !important;
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 14% !important;
+    margin-bottom: 9% !important;
+    // padding-top: 10% !important;
+    // padding-bottom: 8% !important;
+    --background: #F9F2E6;
+}
+
+ion-header {
+    position: fixed;
+    --background: #F9F2E6;
+    z-index: 0 !important;
+}

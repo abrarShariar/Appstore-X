@@ -1,0 +1,17 @@
+<ion-card style="border-radius: 0.8rem!important">
+  <ion-card-content>
+    <div style="text-align: center">
+      <h2 style="text-align: center;font-weight:700">您的手机号码</h2>
+      <br>
+      <h1 style="-webkit-user-select: text;-moz-user-select: text;-ms-user-select: text;user-select: text;">{{ phoneNumber }}</h1>
+      <br><br>
+    </div>
+    <hr>
+    <div style="text-align: center">
+      <h2 style="text-align: center;font-weight:700">您的钱包地址 ({{type}})</h2>
+      <br>
+      <h2 style="-webkit-user-select: text;-moz-user-select: text;-ms-user-select: text;user-select: text;">{{ receiveAddress }}</h2>
+      <img style="height:100px;width:100px;display: block; margin-left: auto; margin-right: auto" src="{{qrCode}}">
+    </div>
+  </ion-card-content>
+</ion-card>

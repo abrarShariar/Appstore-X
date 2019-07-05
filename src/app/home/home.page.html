@@ -1,0 +1,69 @@
+<ion-content>
+  <div id="top-header">
+    <img src="../assets/login_top.png" id="top-logo">
+  </div>
+  <div padding id="input-box">
+    <ion-list>
+      <h3 style="opacity: 0.7;padding: 1rem; text-align:center">注册/登录</h3>
+      <ion-item>
+        <ion-input placeholder="请输入手机号码" type="tel" style="opacity: 0.6;" [(ngModel)]="phoneNumber"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-spinner *ngIf="isCodeReceived"></ion-spinner>
+        <ion-input item-start [(ngModel)]="code" type="number" disabled="{{gotCode == false}}" style="opacity: 0.6;"></ion-input>
+        <a item-end style="font-weight: 900;cursor:pointer" (click)="getCode()"> 获取验证码</a>
+      </ion-item>
+    <br>
+    <ion-button expand="block" shape="round" disabled="{{gotCode == false}}" (click)="verify()">
+      <span style="font-weight: 900">登录</span> <ion-icon name="arrow-forward"></ion-icon>
+      <ion-spinner *ngIf="isVerifyClicked"></ion-spinner>
+    </ion-button>
+  </ion-list>
+  </div>
+  <br>
+  <div style="text-align: center; color: #ffff">
+    <!-- <strong>乐派</strong> -->
+    <img src="../assets/logo_3x.png" style="width: 10%;">
+  </div>
+</ion-content>
+
+
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{ this.texts.title }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<!-- <ion-content>
+  <div id="top-head">
+    <br><br><br>
+    <div>
+      <img src="../assets/appstorex_logo.svg" style="width: 15rem;margin-top: 4rem;">
+    </div>
+
+  </div>
+  <div padding>
+    <ion-list>
+      <h3 style="opacity: 0.7;padding: 1rem;">Sign up</h3>
+      <ion-item>
+        <ion-label position="floating" style="opacity: 0.6;">
+          <ion-icon name="call"></ion-icon>
+            PHONE NUMBER
+        </ion-label>
+        <ion-input type="text" value="+86"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input item-start value="Code" type="text" disabled style="opacity: 0.6;"> </ion-input>
+        <ion-button item-end (click)="getCode()" style="font-weight: 900">{{ this.texts.getCode }}</ion-button>
+      </ion-item>
+  </ion-list>
+    <br>
+    <ion-button expand="block" (click)="verify()">
+      <span style="font-weight: 900">Verify</span>
+    </ion-button>
+  </div>
+</ion-content> -->

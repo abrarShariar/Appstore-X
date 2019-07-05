@@ -1,0 +1,49 @@
+#eth_logo {
+  height: 7rem;
+}
+
+#currency_box {
+  text-align: center;
+}
+
+
+#button_box {
+  text-align: center
+}
+
+#footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%
+}
+
+.card_title {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(33,33,33,1);
+  line-height: 25px;
+  // padding: 0.5rem;
+}
+
+#right_value {
+  font-size:18px;
+  font-weight:500;
+  color:rgba(33,33,33,1);
+  line-height:25px;
+  float: right;
+  // padding: 0.5rem;
+}
+
+#card_btn_1 {
+  // width:80px;
+  height:32px;
+  --background:rgba(53,116,250,1)!important;
+  border-radius:16px;
+}
+
+#card_btn_2 {
+  // width:80px;
+  height:32px;
+  --background:rgba(125,104,215,1)!important;
+  border-radius:16px;
+}

@@ -1,0 +1,98 @@
+#slots-toolbar {
+  --background: #e40d0d
+}
+
+.option_row {
+  text-align: center;
+  height: 3rem;
+  border-right: 1px solid;
+  border-bottom: 1px solid rgba(0,0,0,0.14)
+}
+
+.right_option_row {
+  text-align: center;
+  height: 3rem;
+  border-bottom: 1px solid rgba(0,0,0,0.14)
+}
+
+.right_option_row > ion-col {
+  border-right: 1px solid rgba(0,0,0,0.14);
+}
+
+// .option_body > div {
+//   border-bottom: 1px solid rgba(0,0,0,0.14);
+// }
+
+.background-left-col {
+  background-color: #e9eaec;;
+}
+
+.background-right-col-dark {
+  background-color: #d1d2d7a6;
+}
+
+#slot_footer {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  background-color: #222428;
+  color: white;
+  text-align: center;
+  // bottom: 11%;
+  bottom: 0;
+  height: 4rem;
+}
+
+.slot_input {
+    background-color: #f4f5f8;
+    width: 60%;
+    text-align: -webkit-center;
+    border-radius: 10px;
+    color: black
+}
+
+#main_body > ion-grid  > ion-row {
+  width: 105%;
+  margin-left: -3%;
+}
+//
+// .slot-modal .modal-wrapper {
+//   height: 50px;
+//   width: 50px
+// }
+
+.option_body {
+  margin-top: -1rem;
+  padding-right: 0rem;
+}
+
+.right_option_body {
+  margin-top: -1.3rem;
+  margin-left: -0.6rem;
+}
+
+.right_option_body > ion-grid {
+  margin-right: -1rem;
+}
+
+.round_digit_shit {
+  padding-left: 0.4rem;
+  border-radius: 10rem;
+  padding-right: 0.2rem;
+  border: 1.5px solid #f4a942;
+  background: #f4f5f8;
+  margin-right: 0.3rem;
+}
+
+.round_shit_top {
+  border: 1.5px solid #f4a942;
+  background: #f4f5f8;
+  padding-right: 0.2rem;
+  border-radius: 10rem;
+  margin-right: 0.3rem;
+  padding-left: 0.3rem;
+}
+
+.right_option_row > ion-col {
+  cursor: pointer;
+}

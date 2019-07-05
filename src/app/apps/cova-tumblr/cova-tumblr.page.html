@@ -1,0 +1,48 @@
+<!-- <ion-header *ngIf = "isShowHeader">
+  <ion-toolbar color = "primary">
+    <ion-title padding>BOUNDLESS BOOKS</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <ion-toolbar *ngIf = "isShowBar">
+    <ion-row nowrap>
+      <ion-col size = 11>
+        <ion-searchbar placeholder = "搜索" shape = "round" [(ngModel)]="queryText"
+          (search) = "sendKeyword()" >
+        </ion-searchbar>
+      </ion-col>
+      <ion-col size = 1 style = "padding-top: 7%;" size = 1>
+        <ion-icon size = "small" name = "radio-button-on" (click) = "onClickRadio()"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+  <div *ngIf = "isShowCategories" class="scrolling-wrapper">
+    <ion-button strong *ngFor = "let category of categoryList" [ngStyle]="{'color': isSelected[category.id] ? '#3AA7FF' : 'black'}" (click) = "sendButtonKeyword(category)">
+      {{category.name}}
+    </ion-button>
+  </div>
+
+  <div *ngIf = "isShowParams">
+    <ion-row>
+    <ion-select cancelText = "取消" okText = "好" placeholder="人气数" (ionChange) = "sendSortParam($event)">
+      <ion-select-option value="popularity">人气数</ion-select-option>
+      <ion-select-option value="total_clicks">点击数</ion-select-option>
+      <ion-select-option value="total_view">查看数</ion-select-option>
+      <ion-select-option value="total_read">阅读数</ion-select-option>
+    </ion-select>
+    <ion-select cancelText = "取消" okText = "好" placeholder="从高到低" (ionChange) = "sendOrderParam($event)">
+      <ion-select-option value="asc">从低到高</ion-select-option>
+      <ion-select-option value="desc">从高到低</ion-select-option>
+    </ion-select>
+    </ion-row>
+  </div>
+
+  <ion-content>
+    <router-outlet></router-outlet> 
+  </ion-content>
+</ion-content>
+
+<app-tumblr-tabs *ngIf="isShowTab"></app-tumblr-tabs>
+

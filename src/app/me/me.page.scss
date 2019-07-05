@@ -1,0 +1,27 @@
+ion-header {
+  background-image: none!important;
+}
+
+ion-title {
+  padding: 0 30px;
+  padding-top: 3px !important;
+  padding-bottom: 4px !important;
+  position: absolute;
+  text-align: left;
+}
+
+ion-toolbar {
+  --background: #f95175;
+}
+
+ion-content {
+  // background: red;
+  --background: url('../../assets/me_page_background.png');
+}
+
+
+// ion-content > div.scroll-x {
+//   background-color: #FF434C;
+//   --background: red;
+// }
+// // /html/body/app-root/ion-app/ion-router-outlet/app-me/ion-content//div

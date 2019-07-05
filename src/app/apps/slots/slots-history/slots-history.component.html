@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar id="slots-toolbar">
+    <ion-grid>
+      <ion-row>
+          <ion-col size="4">
+            <span>
+              你好你
+            </span>
+          </ion-col>
+          <ion-col size="5">
+            <span style="">
+              你好你好你
+            </span>
+          </ion-col>
+          <ion-col size="2">
+            <span style="">
+              你好你
+            </span>
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="radio-button-on" (click)="goToHome()"></ion-icon>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+<!-- main content body -->
+<ion-content>
+  <ion-grid style="background: #f2f2f2;">
+    <ion-row>
+      <ion-col size="6">
+        <div style="color:red;text-align: -webkit-center;border-right: 1px inset #989aa254;margin-top: -10px;padding: 14px;margin-bottom: -10px;">
+          <span>Total Win</span>
+          <br>
+          <span>{{ totalWin.toFixed(2) }}</span>
+        </div>
+      </ion-col>
+      <ion-col size="6">
+        <div style="color:red;text-align: -webkit-center;margin-top: -10px;padding: 10px;">
+          <span>Total Bet</span>
+          <br>
+          <span>{{ totalBet.toFixed(2) }}</span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Start rows of each history  -->
+  <div style="font-size: 0.8rem;color: #84868e;border-bottom: 1px inset rgba(0,0,0,0.12);" *ngFor="let item of historyList">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <p>
+            你好你好你好
+          </p>
+          <p>
+            <span>Bet Amount {{ item.amount }}</span> <br>
+            <span>Reward Amount {{ ((item.factor * item.amount) - item.amount) < 0 ? 0 : ((item.factor * item.amount) - item.amount).toFixed(2) }}</span> <br>
+          </p>
+        </ion-col>
+        <ion-col size="6">
+          <div style="float:right">
+            <p style="text-align: end;">你好</p>
+            <p style="text-align: end;">
+              <ion-button size="small" color="danger">你好</ion-button>
+            </p>
+            <p>
+              {{ item.timestamp | date: 'yyyy-mm-dd HH:mm:ss'}}
+            </p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="has-text-centered">
+    <br>
+    <!-- <pagination-controls
+          (pageChange)="currentPage = $event"
+          previousLabel=""
+          nextLabel=""
+    >
+    </pagination-controls> -->
+    <span (click)="goPrev()" style="cursor: pointer;    padding-right: 5px;">
+      << <span>Prev</span>
+    </span>
+
+    <span style="padding: 5px;background-color: #9e9e9e47;padding-top: 1px;padding-bottom: 1px;">
+      {{ currentPage + 1 }}
+    </span>
+
+    <span (click)="goNext()" style="cursor: pointer;    padding-left: 5px;">
+      <span>Next</span> >>
+    </span>
+
+  </div>
+</ion-content>

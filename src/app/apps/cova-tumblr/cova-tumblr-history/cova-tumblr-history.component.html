@@ -1,0 +1,44 @@
+<ion-header style = "position: fixed;">
+  <ion-toolbar>
+    <ion-row nowrap>
+      <ion-col size = 1>
+        <ion-icon size = "small" name = "arrow-back" (click) = onClickBack()></ion-icon>
+      </ion-col>
+      <ion-col size = 10>
+        <ion-title>历史</ion-title>
+      </ion-col>
+      <ion-col size = 1>
+        <ion-icon size = "small" name = "radio-button-on" (click) = onClickRadio()></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<div style = "padding-top: 10%;">
+    <ion-card *ngFor="let singleContent of content" (click) = "onClickContent(singleContent)">
+      <ion-card-content>
+        <ion-row style = "text-align: left;">
+          <ion-col size = 4>
+            <img *ngIf="singleContent.cover_image" [src]="singleContent.cover_image" onError = "this.onerror = null; this.src = 'assets/default.jpg';"/>
+          </ion-col>
+          <ion-col size = 8>
+            <ion-card-title>
+              {{singleContent.title}}
+            </ion-card-title>
+            <ion-card-subtitle>
+              {{singleContent.author}}
+            </ion-card-subtitle>
+            <p>
+              {{singleContent.short_description}}
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  
+    <ion-infinite-scroll (ionInfinite) = "loadMore($event)">
+    <ion-infinite-scroll-content loadingText = "加载">  
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  </div>
+  

@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-row>
+    <ion-col size = 11>
+      <h1 style="padding-left: 2%;font-weight:900">钱包</h1>
+    </ion-col>
+    <ion-col size = 1>
+      <ion-icon style = "padding-top: 100%;" name = "radio-button-on" (click) = onClickRadio()></ion-icon>
+    </ion-col>
+  </ion-row>
+</ion-header>
+
+<ion-card>
+  <ion-card-header>
+    <ion-row>
+      <!-- <ion-col size="6">
+        <ion-row>
+          <img src="../../../assets/cova_logo_wallet.svg" style="width: 2rem;">
+          <span class="card_title">渴望币（COVA)</span>
+        </ion-row>
+      </ion-col>
+      <ion-col size="6">
+        <span id="right_value">{{ covaBalance }}</span>
+      </ion-col> -->
+
+      <ion-col size = auto>
+        <img src="../../../assets/cova_logo_wallet.svg" style="width: 2rem;">
+      </ion-col>
+      <ion-col size = auto>
+        <span class="card_title">FakeCova</span>
+      </ion-col>
+      <ion-col>
+        <span id="right_value">{{ covaBalance }}</span>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <ion-row style="padding-top: 1rem;">
+          <a style="cursor:pointer;text-decoration: none" [routerLink]="['/wallet/history']" [queryParams]="{ type: 'cova' }">历史记录</a>
+        </ion-row>
+      </ion-col>
+      <ion-col size="6">
+        <ion-row style="margin-left: -2rem;">
+          <ion-col size="5">
+            <ion-button shape="round" id="card_btn_1" (click)="goToSend('FakeCova')">转账</ion-button>
+          </ion-col>
+          <ion-col size="2"></ion-col>
+          <ion-col size="5">
+            <ion-button shape="round" id="card_btn_2" (click)="goToInbox('FakeCova')">接收</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-card-header>
+
+</ion-card>
+
+<br>
+
+<ion-card>
+  <ion-card-header>
+    <ion-row>
+      <!-- <ion-col size="6">
+        <ion-row>
+          <img src="../../../assets/eth_logo_wallet.svg" style="width: 2rem;">
+          <span class="card_title">以太坊</span>
+        </ion-row>
+      </ion-col>
+      <ion-col size="6">
+        <span id="right_value">{{ ethBalance }}</span>
+      </ion-col> -->
+      <ion-col size = auto>
+        <img src="../../../assets/eth_logo_wallet.svg" style="width: 2rem;">
+      </ion-col>
+      <ion-col size = auto>
+        <span class="card_title">以太坊 (ETH)</span>
+      </ion-col>
+      <ion-col>
+        <span id="right_value">{{ ethBalance }}</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <ion-row style="padding-top: 1rem;">
+          <a style="cursor:pointer;text-decoration: none" [routerLink]="['/wallet/history']" [queryParams]="{ type: 'eth' }">历史记录</a>
+        </ion-row>
+      </ion-col>
+      <ion-col size="6">
+        <ion-row style="margin-left: -2rem;">
+          <ion-col size="5">
+            <ion-button shape="round" id="card_btn_1" (click)="goToSend('ETH')">转账</ion-button>
+          </ion-col>
+          <ion-col size="2"></ion-col>
+          <ion-col size="5">
+            <ion-button shape="round" id="card_btn_2" (click)="goToInbox('ETH')">接收</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-card-header>
+</ion-card>
+<!-- <p>
+请及时备份助记词，它将帮助您避免因密码遗忘而丢失账户的情况
+</p> -->
+<!--
+<p style="user-select: text;">
+  {{ mnemonic }}
+</p> -->
+
+<ion-button (click)="showMnemonic()" shape="round" expand="block" style="
+height:50px;
+background:rgba(53,116,250,1);
+border-radius:25px;">
+  复制助记符
+</ion-button>
+<ion-button (click)="showRecoverWindow()" shape="round" expand="block" style="
+height:50px;
+background:rgba(53,116,250,1);
+border-radius:25px;">
+  账户恢复
+</ion-button>

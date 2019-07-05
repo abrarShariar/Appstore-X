@@ -1,0 +1,43 @@
+<!-- <img src="../../../../assets/cryptogram_send_top.png">  -->
+
+<div style="align-content: left;display: flex;justify-content: flex-end;">
+  <ion-icon style="padding: 4%;" name="radio-button-on" (click)=onClickRadio()></ion-icon>
+</div>
+
+<ion-card style="border-radius: 0.8rem!important; margin-top: 0;">
+  <ion-card-content>
+    <h1 style="padding: 1rem;">填写转帐信息</h1>
+    <ion-list>
+      <ion-item *ngIf="mode == 'phone'">
+        <ion-input type="text" placeholder="接收方手机号码" [(ngModel)]="phoneNumber"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="mode == 'address'">
+        <ion-input type="text" placeholder="接收方钱包地址" [(ngModel)]="address"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" placeholder="红包大小" [(ngModel)]="amount"></ion-input>
+        <ion-button fill="solid" size="small">{{ type }}</ion-button>
+        <ion-button fill="solid" size="small" style="opacity:0.5" (click)="toggleType()">{{ type == 'COVA' || type == 'FakeCova' ? 'ETH' :
+          'FakeCova' }}</ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-textarea type="text" placeholder="备注信息" [(ngModel)]="msg"></ion-textarea>
+      </ion-item>
+      <br>
+    </ion-list>
+    <ion-button style="height:50px;
+        background:rgba(53,116,250,1);
+        border-radius:25px;" shape="round"
+      expand="block" disabled="{{isSendClicked === true}}" (click)="confirmSend()">{{ isSent ? 'Sent' : '确认发送'}} <ion-spinner *ngIf="isSendClicked && !isSent"></ion-spinner>
+    </ion-button>
+
+    <br>
+    <a (click)="toggleMode()" style="font-size: 1.2rem; cursor: pointer">
+      <span *ngIf="mode == 'phone'">通过钱包地址转账 </span>
+      <span *ngIf="mode == 'address'">通过手机号码转账</span>
+    </a>
+  </ion-card-content>
+</ion-card>

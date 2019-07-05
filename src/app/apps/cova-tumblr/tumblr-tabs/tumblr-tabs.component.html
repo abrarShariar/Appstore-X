@@ -1,0 +1,33 @@
+<!-- <ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="time">
+      <ion-icon name="time"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="person">
+      <ion-icon name="person"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs> -->
+
+<div>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button color = "light" (click) = "onClickHome()">
+      <ion-icon [ngStyle]="{'color': isHome? '#3AA7FF' : '#979797'}" name="book"></ion-icon>
+      <ion-label [ngStyle]="{'color': isHome? '#3AA7FF' : '#979797'}">主页</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button color = "light" (click) = "onClickHistory()">
+      <ion-icon [ngStyle]="{'color': isHistory? '#3AA7FF' : '#979797'}" name="time"></ion-icon>
+      <ion-label [ngStyle]="{'color': isHistory? '#3AA7FF' : '#979797'}">历史</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button color = "light" (click) = "onClickMe()">
+      <ion-icon [ngStyle]="{'color': isMe? '#3AA7FF' : '#979797'}" name="person"></ion-icon>
+      <ion-label [ngStyle]="{'color': isMe? '#3AA7FF' : '#979797'}">我的</ion-label>
+    </ion-tab-button>
+    
+  </ion-tab-bar>
+</div>

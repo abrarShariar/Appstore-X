@@ -1,0 +1,426 @@
+<ion-header>
+  <ion-toolbar id="slots-toolbar">
+    <ion-grid>
+      <ion-row>
+        <!-- for the left column -->
+        <ion-col size="6">
+          <ion-row>
+            <ion-col size="5" style="margin-right: -20%;">
+              <!-- img -->
+              <img src="../../../../assets/person-placeholder.jpg" style="width: 40%;border-radius: 50%;height: 90%;">
+            </ion-col>
+            <ion-col size="5" style="font-size: 12px;color: white;">
+              <span>测试: 测试</span><br>
+              <span>测试: 测试</span>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col size="4">
+          <ion-row>
+              <ion-button color="light" size="small" fill="outline" (click)="showHistory()">测试</ion-button>
+              <ion-button color="light" size="small" fill="outline" (click)="showRandomHistory()">测试</ion-button>
+          </ion-row>
+        </ion-col>
+        <ion-col size="1" style="margin-left: 8%;margin-top: 1%;">
+          <ion-icon name="radio-button-on" (click)="goToHome()"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content style="max-height: 35rem">
+  <!-- first row: counter clock -->
+  <div id="main_body">
+    <ion-grid style="padding-left: 20px;">
+      <ion-row style="font-size: 12px">
+        <ion-col size="6">
+          <ion-icon name="alarm"></ion-icon>
+          <span>
+            测试 测试2019123123123测试:
+          </span>
+        </ion-col>
+        <ion-col size="6">
+          <span style="color: orange">{{ countDownHour }}:{{ countDownMin }}:{{ countDownSec }}:</span> Countdown of clock
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- second row -->
+    <ion-grid style="border-top: 1px solid;border-bottom: 1px solid;padding-left: 20px;">
+      <ion-row style="font-size: 12px">
+        <ion-col size="12">
+          <ion-icon name="trophy"></ion-icon>
+          <span>
+            测试09测试:
+          </span>
+          <span class="round_shit_top">
+            {{ randomNumbers[0] }}
+          </span>
+          <span class="round_shit_top">
+            {{ randomNumbers[1] }}
+          </span>
+          <span class="round_shit_top">
+            {{ randomNumbers[2] }}
+          </span>
+          <span class="round_shit_top">
+            {{ randomNumbers[3] }}
+          </span>
+          <span class="round_shit_top" style="padding-right: 0.4rem">
+            {{ randomNumbers[4] }}
+          </span>
+        </ion-col>
+        <!-- <ion-col size="6">
+          <span style="color: orange">00:00:21:</span> Result of ###
+        </ion-col> -->
+      </ion-row>
+    </ion-grid>
+
+    <!-- two columns for option toggle -->
+    <ion-grid>
+      <ion-row style="border-bottom: 1px inset;margin-top: -1%;text-align: center;height: 3rem;">
+        <ion-col size="4" style="border-right: 1px solid"  class="">
+          <span style="color: red">
+            类型
+          </span>
+        </ion-col>
+
+        <ion-col size="8">
+          <span>
+           竞猜种类
+          </span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- Where the cool shit happens -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" class="option_body">
+          <div *ngFor="let selector of listOfSelectors" size="4" class="option_row background-left-col">
+            <input type="radio" id="{{ selector }}" name="bet_selector" value="{{selector}}" #betSelector [(ngModel)]="selectedSection" (ngModelChange)="onSelectChange($event)"/>
+            <label for="{{selector}}" style="cursor:pointer">
+              <span>
+                {{ selector }}
+              </span>
+            </label>
+          </div>
+        </ion-col>
+
+        <ion-col size="8" class="right_option_body">
+            <!-- non-digit shits starts -->
+            <!-- section for 整合 -->
+            <ion-grid *ngIf="selectedSection == '整合'">
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="6" (click)="setType('总和大')" [ngStyle]="{ 'border': typeMap['总和大'] === selectedType ? 'inset' : '', 'border-right': typeMap['总和大'] === selectedType ? 'outset': '', 'border-bottom': typeMap['总和大'] === selectedType ? 'outset': '' }">
+                  <span>
+                    总和大
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+                <ion-col size="6" (click)="setType('总和小')"  [ngStyle]="{ 'border': typeMap['总和小'] === selectedType ? 'inset' : '', 'border-right': typeMap['总和小'] === selectedType ? 'outset': '', 'border-bottom': typeMap['总和小'] === selectedType ? 'outset': '' }">
+                  <span>
+                    总和小
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="6" (click)="setType('总和单')"  [ngStyle]="{ 'border': typeMap['总和单'] === selectedType ? 'inset' : '', 'border-right': typeMap['总和单'] === selectedType ? 'outset': '', 'border-bottom': typeMap['总和单'] === selectedType ? 'outset': '' }">
+                  <span>
+                    总和单
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+                <ion-col size="6" (click)="setType('总和双')"  [ngStyle]="{ 'border': typeMap['总和双'] === selectedType ? 'inset' : '', 'border-right': typeMap['总和双'] === selectedType ? 'outset': '', 'border-bottom': typeMap['总和双'] === selectedType ? 'outset': '' }">
+                  <span>
+                    总和双
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+            <!-- section for 前三 -->
+            <ion-grid *ngIf="selectedSection == '前三'">
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="6" (click)="setType('豹子')"  [ngStyle]="{ 'border': typeMap['豹子'] === selectedType ? 'inset' : '', 'border-right': typeMap['豹子'] === selectedType ? 'outset': '', 'border-bottom': typeMap['豹子'] === selectedType ? 'outset': '' }">
+                  <span>
+                    豹子
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+                <ion-col size="6" (click)="setType('顺子')"  [ngStyle]="{ 'border': typeMap['顺子'] === selectedType ? 'inset' : '', 'border-right': typeMap['顺子'] === selectedType ? 'outset': '', 'border-bottom': typeMap['顺子'] === selectedType ? 'outset': '' }">
+                  <span>
+                    顺子
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="6" (click)="setType('对子')" [ngStyle]="{ 'border': typeMap['对子'] === selectedType ? 'inset' : '', 'border-right': typeMap['对子'] === selectedType ? 'outset': '', 'border-bottom': typeMap['对子'] === selectedType ? 'outset': '' }">
+                  <span>
+                    对子
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+                <ion-col size="6" (click)="setType('半顺')" [ngStyle]="{ 'border': typeMap['半顺'] === selectedType ? 'inset' : '', 'border-right': typeMap['半顺'] === selectedType ? 'outset': '', 'border-bottom': typeMap['半顺'] === selectedType ? 'outset': '' }">
+                  <span>
+                    半顺
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="12" (click)="setType('杂六')" [ngStyle]="{ 'border': typeMap['杂六'] === selectedType ? 'inset' : '', 'border-right': typeMap['杂六'] === selectedType ? 'outset': '', 'border-bottom': typeMap['杂六'] === selectedType ? 'outset': '' }">
+                  <span>
+                    杂六
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+            <!-- section for 中三 -->
+            <ion-grid *ngIf="selectedSection == '中三'">
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="6" (click)="setType('豹子')" [ngStyle]="{ 'border': typeMap['豹子'] === selectedType ? 'inset' : '', 'border-right': typeMap['豹子'] === selectedType ? 'outset': '', 'border-bottom': typeMap['豹子'] === selectedType ? 'outset': '' }">
+                  <span>
+                    豹子
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+                <ion-col size="6" (click)="setType('顺子')" [ngStyle]="{ 'border': typeMap['顺子'] === selectedType ? 'inset' : '', 'border-right': typeMap['顺子'] === selectedType ? 'outset': '', 'border-bottom': typeMap['顺子'] === selectedType ? 'outset': '' }">
+                  <span>
+                    顺子
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="6" (click)="setType('对子')" [ngStyle]="{ 'border': typeMap['对子'] === selectedType ? 'inset' : '', 'border-right': typeMap['对子'] === selectedType ? 'outset': '', 'border-bottom': typeMap['对子'] === selectedType ? 'outset': '' }">
+                  <span>
+                    对子
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+                <ion-col size="6" (click)="setType('半顺')" [ngStyle]="{ 'border': typeMap['半顺'] === selectedType ? 'inset' : '', 'border-right': typeMap['半顺'] === selectedType ? 'outset': '', 'border-bottom': typeMap['半顺'] === selectedType ? 'outset': '' }">
+                  <span>
+                    半顺
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="12" (click)="setType('杂六')" [ngStyle]="{ 'border': typeMap['杂六'] === selectedType ? 'inset' : '', 'border-right': typeMap['杂六'] === selectedType ? 'outset': '', 'border-bottom': typeMap['杂六'] === selectedType ? 'outset': '' }">
+                  <span>
+                    杂六
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+            <!-- section for 后三 -->
+            <ion-grid *ngIf="selectedSection == '后三'">
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="6" (click)="setType('豹子')" [ngStyle]="{ 'border': typeMap['豹子'] === selectedType ? 'inset' : '', 'border-right': typeMap['豹子'] === selectedType ? 'outset': '', 'border-bottom': typeMap['豹子'] === selectedType ? 'outset': '' }">
+                  <span>
+                    豹子
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+                <ion-col size="6" (click)="setType('顺子')" [ngStyle]="{ 'border': typeMap['顺子'] === selectedType ? 'inset' : '', 'border-right': typeMap['顺子'] === selectedType ? 'outset': '', 'border-bottom': typeMap['顺子'] === selectedType ? 'outset': '' }">
+                  <span>
+                    顺子
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="6" (click)="setType('对子')" [ngStyle]="{ 'border': typeMap['对子'] === selectedType ? 'inset' : '', 'border-right': typeMap['对子'] === selectedType ? 'outset': '', 'border-bottom': typeMap['对子'] === selectedType ? 'outset': '' }">
+                  <span>
+                    对子
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+                <ion-col size="6" (click)="setType('半顺')" [ngStyle]="{ 'border': typeMap['半顺'] === selectedType ? 'inset' : '', 'border-right': typeMap['半顺'] === selectedType ? 'outset': '', 'border-bottom': typeMap['半顺'] === selectedType ? 'outset': '' }">
+                  <span>
+                    半顺
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="12" (click)="setType('杂六')" [ngStyle]="{ 'border': typeMap['杂六'] === selectedType ? 'inset' : '', 'border-right': typeMap['杂六'] === selectedType ? 'outset': '', 'border-bottom': typeMap['杂六'] === selectedType ? 'outset': '' }">
+                  <span>
+                    杂六
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <!-- digit shits starts -->
+            <!-- section for 后三 | 千位 | 百位 | 十位 | 个位 -->
+            <ion-grid *ngIf="selectedSection == '万位' || selectedSection == '千位' || selectedSection == '百位' || selectedSection == '十位' || selectedSection == '个位'">
+              <!-- digits -->
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="6" (click)="setType('0')" [ngStyle]="{ 'border': typeMap['0'] === selectedType ? 'inset' : '', 'border-right': typeMap['0'] === selectedType ? 'outset': '', 'border-bottom': typeMap['0'] === selectedType ? 'outset': '' }">
+                  <span class="round_digit_shit">
+                    0
+                  </span>
+                  <small>9.85</small>
+                </ion-col>
+                <ion-col size="6" (click)="setType('1')" [ngStyle]="{ 'border': typeMap['1'] === selectedType ? 'inset' : '', 'border-right': typeMap['1'] === selectedType ? 'outset': '', 'border-bottom': typeMap['1'] === selectedType ? 'outset': '' }">
+                  <span class="round_digit_shit" style="padding-left: 0.5rem;padding-right: 0.3rem;">
+                     1
+                   </span>
+                  <small>9.85</small>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="6"  (click)="setType('2')" [ngStyle]="{ 'border': typeMap['2'] === selectedType ? 'inset' : '', 'border-right': typeMap['2'] === selectedType ? 'outset': '', 'border-bottom': typeMap['2'] === selectedType ? 'outset': '' }">
+                  <span class="round_digit_shit"> 2 </span>
+                  <small>9.85</small>
+                </ion-col>
+                <ion-col size="6" (click)="setType('3')" [ngStyle]="{ 'border': typeMap['3'] === selectedType ? 'inset' : '', 'border-right': typeMap['3'] === selectedType ? 'outset': '', 'border-bottom': typeMap['3'] === selectedType ? 'outset': '' }">
+                  <span class="round_digit_shit">
+                    3
+                  </span>
+                  <small>9.85</small>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="6"  (click)="setType('4')" [ngStyle]="{ 'border': typeMap['4'] === selectedType ? 'inset' : '', 'border-right': typeMap['4'] === selectedType ? 'outset': '', 'border-bottom': typeMap['4'] === selectedType ? 'outset': '' }">
+                  <span class="round_digit_shit">
+                    4
+                  </span>
+                  <small>9.85</small>
+                </ion-col>
+                <ion-col size="6" (click)="setType('5')" [ngStyle]="{ 'border': typeMap['5'] === selectedType ? 'inset' : '', 'border-right': typeMap['5'] === selectedType ? 'outset': '', 'border-bottom': typeMap['5'] === selectedType ? 'outset': '' }">
+                  <span class="round_digit_shit" >
+                    5
+                  </span>
+                  <small>9.85</small>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="6" (click)="setType('6')" [ngStyle]="{ 'border': typeMap['6'] === selectedType ? 'inset' : '', 'border-right': typeMap['6'] === selectedType ? 'outset': '', 'border-bottom': typeMap['6'] === selectedType ? 'outset': '' }">
+                  <span class="round_digit_shit">
+                    6
+                  </span>
+                  <small>9.85</small>
+                </ion-col>
+                <ion-col size="6" (click)="setType('7')" [ngStyle]="{ 'border': typeMap['7'] === selectedType ? 'inset' : '', 'border-right': typeMap['7'] === selectedType ? 'outset': '', 'border-bottom': typeMap['7'] === selectedType ? 'outset': '' }">
+                  <span class="round_digit_shit">
+                    7
+                  </span>
+                  <small>9.85</small>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="6" (click)="setType('8')" [ngStyle]="{ 'border': typeMap['8'] === selectedType ? 'inset' : '', 'border-right': typeMap['8'] === selectedType ? 'outset': '', 'border-bottom': typeMap['8'] === selectedType ? 'outset': '' }">
+                  <span class="round_digit_shit">
+                    8
+                  </span>
+                  <small>9.85</small>
+                </ion-col>
+                <ion-col size="6" (click)="setType('9')" [ngStyle]="{ 'border': typeMap['9'] === selectedType ? 'inset' : '', 'border-right': typeMap['9'] === selectedType ? 'outset': '', 'border-bottom': typeMap['9'] === selectedType ? 'outset': '' }">
+                  <span class="round_digit_shit">
+                    9
+                  </span>
+                  <small>9.85</small>
+                </ion-col>
+              </ion-row>
+
+              <!-- non-digits  -->
+
+              <!-- <ion-row class="right_option_row">
+                <ion-col size="12">
+                  <span>
+                    类型
+                  </span>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="6">
+                  <span>
+                    豹子
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+                <ion-col size="6">
+                  <span>
+                    顺子
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="6">
+                  <span>
+                    对子
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+                <ion-col size="6">
+                  <span>
+                    半顺
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="right_option_row background-left-col">
+                <ion-col size="12">
+                  <span>
+                    杂六
+                    <small>1.97</small>
+                  </span>
+                </ion-col>
+              </ion-row> -->
+
+            </ion-grid>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</ion-content>
+
+<!-- Footer section-->
+<div id="slot_footer">
+   <ion-grid>
+     <ion-row>
+        <ion-col size="3">
+          <input type="text" placeholder="测试" class="slot_input" [(ngModel)]="seedData"/>
+        </ion-col>
+        <ion-col size="3">
+          <input type="text" placeholder="测试" class="slot_input" style="float: left;" [(ngModel)]="amountData"/>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button color="success" size="small" style="float: right" (click)="confirmBet()">
+            测试
+          </ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button color="danger" size="small" (click)="cancelBet()">
+            测试
+          </ion-button>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</div>

@@ -1,0 +1,30 @@
+// ion-button {
+//   width: 6rem;
+// }
+//
+// ion-header {
+//   // --background: linear-gradient(#f69606, #fbdf5d);
+//   --background: #f69606
+// }
+//
+// ion-toolbar {
+//   // --background: linear-gradient(#f69606, #fbdf5d);
+//   --background: #f69606
+// }
+
+ion-button {
+    width: 15%;
+    font-size: 12px;
+    height: 30px;
+    --border-radius: 10%;
+    --box-shadow: none !important;
+    --background: #FFFFFF !important;
+    // --color: #000000;
+}
+
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+

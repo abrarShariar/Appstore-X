@@ -1,0 +1,60 @@
+<div id="slot_modal_body">
+  <!-- Title header -->
+  <div style="background-color: #d22323;text-align: center;padding: 10px;">
+    <span style="color: white;padding: 10px;">
+      注单信息
+    </span>
+  </div>
+  <!-- grid body -->
+  <div>
+    <ion-grid>
+      <div style="padding:3%">
+        <ion-row style="background-color: #989aa2;color: white">
+          <ion-col size="4">
+            <div class="grid-text">
+              类型
+            </div>
+          </ion-col>
+          <ion-col size="4">
+            <div class="grid-text">
+              号码
+            </div>
+          </ion-col>
+          <ion-col size="4">
+            <div class="grid-text">
+              金额
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row style="background-color: rgba(0,0,0,0.2);">
+          <ion-col size="4">
+            <div class="grid-text">
+              <!-- Category -->
+              {{ selectedSection }}
+            </div>
+          </ion-col>
+          <ion-col size="4">
+            <div class="grid-text">
+              <!-- Number -->
+              {{ keyName }}
+            </div>
+          </ion-col>
+          <ion-col size="4">
+            <div class="grid-text">
+              <!-- Amount -->
+              {{ payload.money }}
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-grid>
+  </div>
+
+  <!-- block button  -->
+  <div style="margin-top: 14%;padding: 10px;text-align: -webkit-center;">
+    <span style="color: #d22323">共 1 注，共 1.0 元</span>
+    <ion-button color="danger" expand="block" (click)="doBet()">
+      确认投注
+    </ion-button>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+
+
+<ion-content>
+  <ion-header no-border>
+    <ion-toolbar style = "height: auto; position: fixed;">
+      <ion-row style = "padding-top:1.5rem; padding-bottom:.3rem;">
+        <ion-col size = 10>
+          <ion-title style = "height: 10%;">
+            <h1 style="font-weight: 900; padding-top: 1rem; position: left;">我的</h1>
+          </ion-title>
+        </ion-col>
+        <ion-col size = 1>
+          <ion-icon name = "radio-button-on" (click) = onClickRadio()></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content padding>
+    <router-outlet style="background-color:black;"></router-outlet>
+  </ion-content>
+</ion-content>
+
+<app-tabs></app-tabs>

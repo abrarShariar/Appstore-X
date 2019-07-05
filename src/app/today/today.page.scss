@@ -1,0 +1,19 @@
+// ion-header {
+//   --background: linear-gradient(#f69606, #fbdf5d);
+// }
+//
+// ion-toolbar {
+//   --background: linear-gradient(#f69606, #fbdf5d);
+// }
+
+// ion-card {
+//   --background: url('../../assets/red_env_view1.png') no-repeat center center / cover;
+//   height: 100%;
+// }
+ion-card {
+  // width:335px;
+  height: 90%;
+  --background:linear-gradient(351deg,rgba(247,77,48,1) 0%,rgba(254,130,68,1) 100%);
+  box-shadow:0px 6px 20px 0px rgba(178,178,178,0.23);
+  border-radius:24px;
+}

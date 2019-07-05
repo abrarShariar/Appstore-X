@@ -1,0 +1,27 @@
+<div class="my-tabs">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button [routerLink]="['/today']">
+      <ion-icon name="today"></ion-icon>
+      <ion-label>今日</ion-label>
+      <!-- <ion-label>Today</ion-label> -->
+    </ion-tab-button>
+
+    <ion-tab-button [routerLink]="['/apps/home']">
+      <ion-icon name="apps"></ion-icon>
+      <ion-label>应用</ion-label>
+      <!-- <ion-label>Apps</ion-label> -->
+    </ion-tab-button>
+
+    <ion-tab-button>
+      <ion-icon name="wallet" style="color: #4c8dff"></ion-icon>
+      <ion-label style="color: #4c8dff">钱包</ion-label>
+      <!-- <ion-label style="color: #4c8dff">Wallet</ion-label> -->
+    </ion-tab-button>
+
+    <ion-tab-button [routerLink]="['/me/home']">
+      <ion-icon name="person"></ion-icon>
+      <!-- <ion-label>Me</ion-label> -->
+      <ion-label>我的</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</div>

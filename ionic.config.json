@@ -1,0 +1,8 @@
+{
+  "name": "cova-wallet",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "a0fe24f4"
+}

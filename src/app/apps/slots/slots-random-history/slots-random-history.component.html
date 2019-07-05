@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar id="slots-toolbar">
+    <ion-grid>
+      <ion-row>
+          <ion-col size="11" style="text-align:-webkit-center">
+            测试
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon name="radio-button-on" (click)="goToHome()"></ion-icon>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="font-size: 0.8rem;color: #84868e;border-bottom: 1px inset rgba(0,0,0,0.12);" *ngFor="let history of randomHistoryData">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="8">
+          <span style="color:red;padding-left: 3%;">测{{ history.timestamp | date: 'yyyy-mm-dd HH:mm:ss'}}试</span>
+          <br>
+          <ion-row style="font-size: 12px">
+            <ion-col size="12">
+              <span class="round_shit_top">
+                {{ history.randomNumberArray[0] }}
+              </span>
+              <span class="round_shit_top">
+                {{ history.randomNumberArray[1] }}
+              </span>
+              <span class="round_shit_top">
+                {{ history.randomNumberArray[2] }}
+              </span>
+              <span class="round_shit_top">
+                {{ history.randomNumberArray[3] }}
+              </span>
+              <span class="round_shit_top" style="padding-right: 0.4rem">
+                {{ history.randomNumberArray[4] }}
+              </span>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col size="4">
+          <span>{{ history.timestamp | date: 'yyyy-mm-dd HH:mm:ss'}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="has-text-centered">
+    <br>
+    <!-- <pagination-controls
+          class="hide-page-numbers"
+          (pageChange)="changePage($event)"
+          previousLabel="prev"
+          nextLabel="next"
+    >
+    </pagination-controls> -->
+    <span (click)="goPrev()" style="cursor: pointer;    padding-right: 5px;">
+      << <span>Prev</span>
+    </span>
+
+    <span style="padding: 5px;background-color: #9e9e9e47;padding-top: 1px;padding-bottom: 1px;">
+      {{ currentPage + 1 }}
+    </span>
+
+    <span (click)="goNext()" style="cursor: pointer;    padding-left: 5px;">
+      <span>Next</span> >>
+    </span>
+  </div>
+</ion-content>

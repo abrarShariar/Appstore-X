@@ -1,0 +1,31 @@
+<div style = "align-content: left;display: flex;justify-content: flex-end;">
+  <ion-icon style="padding: 4%;" name = "radio-button-on" (click) = onClickRadio()></ion-icon>
+</div>
+
+<ion-card style="border-radius: 0.8rem!important; margin-top: 0;">
+  <ion-card-content>
+    <div style="text-align: center">
+      <h2 style="text-align: center;font-weight:700">您的手机号码</h2>
+      <br>
+      <h1 style="user-select: text;-webkit-user-select: text;-moz-user-select: text;-ms-user-select: text;">{{ phoneNumber }}</h1>
+      <br><br>
+      <!-- <ngx-qrcode [qrc-value]="ethAddress"></ngx-qrcode> -->
+    </div>
+    <hr>
+    <div style="text-align: center">
+      <h2 style="text-align: center;font-weight:700">您的钱包地址 (ETH)</h2>
+      <br>
+      <h2 style="user-select: text;-webkit-user-select: text;-moz-user-select: text;-ms-user-select: text;">{{ ethReceivingAddress }}</h2>
+      <!-- <ngx-qrcode [qrc-value]="ethAddress"></ngx-qrcode> -->
+      <img style="height:100px;width:100px;display: block; margin-left: auto; margin-right: auto" src="{{qrCodeETH}}">
+    </div>
+    <hr>
+    <div style="text-align: center">
+      <h2 style="text-align: center;font-weight:700">您的钱包地址 (FakeCova)</h2>
+      <br>
+      <h2 style="user-select: text;-webkit-user-select: text;-moz-user-select: text;-ms-user-select: text;">{{ covaReceivingAddress }}</h2>
+      <img style="height:100px;width:100px;display: block; margin-left: auto; margin-right: auto" src="{{qrCodeCOVA}}">
+      <!-- <ngx-qrcode [qrc-value]="ethAddress"></ngx-qrcode> -->
+    </div>
+  </ion-card-content>
+</ion-card>

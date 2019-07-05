@@ -1,0 +1,21 @@
+#slots-toolbar {
+  --background: #e40d0d
+}
+
+.round_shit_top {
+  border: 1.5px solid #f4a942;
+  background: #f4f5f8;
+  padding-right: 0.2rem;
+  border-radius: 10rem;
+  margin-right: 0.3rem;
+  padding-left: 0.3rem;
+}
+
+.has-text-centered {
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+.hide-page-numbers /deep/ .ngx-pagination li:not(.pagination-previous):not(.pagination-next) {
+  display: none;
+}

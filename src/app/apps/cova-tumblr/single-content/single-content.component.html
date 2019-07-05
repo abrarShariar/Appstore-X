@@ -1,0 +1,87 @@
+<!-- <ion-header>
+  <ion-toolbar color = "primary">
+    <ion-title>{{content.title}}</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<div>
+  <ion-toolbar style = "position: fixed;">
+    <ion-row>
+      <ion-col size = 1>
+        <ion-icon size = "small" name = "arrow-back" (click) = onClickBack()></ion-icon>
+      </ion-col>
+      <ion-col size = 10>
+        <ion-title>{{content.title}}</ion-title>
+      </ion-col>
+      <ion-col size = 1>
+        <ion-icon size = "small" name = "radio-button-on" (click) = onClickRadio()></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</div>
+
+<div>
+  <ion-card no-shadow>
+    <ion-row>
+      <ion-col size = 5>
+        <img *ngIf="content.cover_image" [src]="content.cover_image" onError = "this.onerror = null; this.src = 'assets/default.jpg';"/>
+      </ion-col>
+      <ion-col size = 7>
+        <ion-card-title style = "padding-bottom: 8px;">{{content.title}}</ion-card-title>
+        <ion-card-subtitle style = "padding-bottom: 4px;">{{content.author}}</ion-card-subtitle>
+        <ion-card-subtitle>{{content.category}}</ion-card-subtitle>
+      </ion-col>
+    </ion-row>
+
+    <ion-row padding style = "padding-bottom: 0;">
+      <!-- <ion-col size = 6>
+        <ion-button padding expand = "block" color = "primary" (click) = onClickBuy(content)>阅读更多</ion-button>
+      </ion-col> -->
+
+      <!-- PREVEIW -->
+
+      <ion-col size = 3>
+        <ion-card-subtitle style = "font-size: 1.2em;">
+          预览
+        </ion-card-subtitle>
+      </ion-col>
+      <ion-col size = 6></ion-col>
+      <ion-col size = 3>
+        <!-- <button class = "button" (click) = "onClickBuy()"> 开始阅读 </button> -->
+        <ion-button style = "border-radius: 16px !important;" color = "primary" size = "small" (click) = onClickBuy()>阅读更多</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row padding>
+      <ion-text>{{content.blurb_desc}}</ion-text>
+    </ion-row>
+  </ion-card>
+</div>
+
+<!-- <br> -->
+
+<div no-padding>
+  <ion-list *ngFor = "let chapterInfo of chapterList?.chapters">
+    <ion-item (click) = "onClickChapter(chapterInfo)">
+      <ion-label>
+        {{chapterInfo.chapter_num}}
+        {{chapterInfo.name}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</div>
+
+<div *ngIf = "isAllNotLoaded" text-center>
+  <ion-button padding expand = "block" size = "small" (click) = "showAllChapters()">显示所有章节</ion-button>
+</div>
+    <!-- <img style = "height: 100%;" *ngIf="content.urlToImage" [src]="content.urlToImage"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{content.title}}
+        <ion-card-subtitle>
+          {{content.author}}
+        </ion-card-subtitle>
+      </ion-card-title>
+      <ion-text>
+        {{content.description}}
+      </ion-text>
+    </ion-card-content> -->

@@ -1,0 +1,21 @@
+ion-card {
+    width: 100%;
+    // z-index: 1 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    // margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    height: 100% !important;
+    --background: #F8F8F8;
+}
+
+ion-card-title {
+    font-size: 1rem !important;
+}
+
+p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // max-width: 200px;
+}

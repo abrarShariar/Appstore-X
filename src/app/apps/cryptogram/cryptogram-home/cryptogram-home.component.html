@@ -1,0 +1,62 @@
+<ion-header>
+  <div id="cryptogram_head" style="padding-left: 5%;color: #ffff">
+    <ion-row>
+      <ion-col size = 11>
+        <h1 style="font-weight: 900;">密友红包</h1>
+      </ion-col>
+      <ion-col size = 1>
+        <ion-icon style = "padding-top: 100%;" name = "radio-button-on" (click) = onClickRadio()></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <h4>只需输入好友的手机号码，即可发送红包</h4>
+    </ion-row>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div id="cryptogram_body">
+  </div>
+  <div id="second_part" class="row" padding>
+      <div id="btn_box">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <ion-button shape="round" class="crypto_btn" (click)="goToSend('FakeCova')">发送</ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button shape="round" class="crypto_btn" (click)="goToInbox()">收取</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+  </div>
+</ion-content>
+
+
+
+<!-- <div id="first_part" class="row">
+  <div id="top-head">
+    <h1>CRYPTOGRAM</h1>
+    <h2>Send crypto red packet</h2>
+  </div>
+
+  <div id="logo-box">
+    <img src="../assets/cryptogram_logo.svg" id="cryptogram_logo">
+  </div>
+</div>
+<div id="second_part" class="row">
+  <br><br><br>
+  <div id="btn_box">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button shape="square" [routerLink]="['/wallet/send']">Send</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button shape="square" [routerLink]="['/wallet/receive']">Inbox</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</div> -->

@@ -1,0 +1,36 @@
+#eth_logo {
+  height: 7rem;
+}
+
+#currency_box {
+  text-align: center;
+}
+
+
+#button_box {
+  text-align: center
+}
+
+#footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%
+}
+
+ion-button {
+  width: 6rem;
+}
+
+ion-header {
+  // --background: linear-gradient(#f69606, #fbdf5d);
+  --background: #f69606
+}
+
+ion-toolbar {
+  // --background: linear-gradient(#f69606, #fbdf5d);
+  --background: #f69606
+}
+
+.showBackground {
+  --background: url('../../assets/main_back.svg') no-repeat center center / cover;
+}

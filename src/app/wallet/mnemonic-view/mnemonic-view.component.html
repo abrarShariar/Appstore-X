@@ -1,0 +1,18 @@
+<ng-container >
+  <ion-card style="margin-top: 2rem;">
+    <!-- <ion-card-header>
+      Write these 12 words in the order they are presented and keep them somewhere hidden and safe.
+    </ion-card-header> -->
+    <ion-card-header>
+        请您按顺序抄写以下 12 个单词，并将它们妥善保管于安全处。如果丢失上述信息，您可能将无法恢复您的账户，并导致潜在的资金损失。
+      </ion-card-header>
+    <ion-card-content 
+      style="-webkit-user-select: text;-moz-user-select: text;-ms-user-select: text;user-select: text;">
+      {{ mnemonic }}
+        <!-- <ion-badge *ngFor="let item of mnemonicList" color="info">{{ item }} </ion-badge> -->
+        <br><br>
+      <ion-button (click)="copyToClipBoard()" style="float:right" shape="square" color="primary" fill="solid">复制助记符</ion-button>
+      <br><br>
+    </ion-card-content>
+  </ion-card>
+</ng-container>

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-row>
+    <ion-col size = 11>
+      <h1 style="padding-left: 2%;font-weight:900">交易记录</h1>
+    </ion-col>
+  </ion-row>
+</ion-header>
+<ion-card *ngFor="let data of transactionList">
+      <!-- <ion-img src="/assets/myImg.png"></ion-img> -->
+      <ion-card-content style="font-size: 0.8rem;" *ngIf="data.tokenName == type">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <strong>{{ data.sentAt | date:'short' }}</strong>
+              <br>
+                <span class="status_label" *ngIf="data.status == 'sent'" style="color: green">Sent</span>
+                <span class="status_label" *ngIf="data.status == 'received'" style="color:blue"> Received</span>
+              <br>
+              <span style="font-size: 1rem;">
+                {{ data.amount }}
+                <span *ngIf="data.tokenName == 'cova'">FakeCova</span>
+                <span *ngIf="data.tokenName == 'eth'">ETH</span>
+              </span>
+              <br>
+              <strong>From: </strong>
+              <span>{{ data.fromPhone === null ? data.fromAddress : data.fromPhone }}</span>
+              <br>
+              <strong>To: </strong>
+              <span>{{ data.toPhone === null ? data.toAddress : data.toPhone }}</span>
+              <br>
+              <strong>Message: </strong>
+              <span>{{ data.message }}</span>
+            </ion-col>
+            <ion-col size="6">
+              <div style="float: right">
+                <strong>Transactiion Id: {{ data.id }}</strong>
+                <!-- <p></p> -->
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+</ion-card>
